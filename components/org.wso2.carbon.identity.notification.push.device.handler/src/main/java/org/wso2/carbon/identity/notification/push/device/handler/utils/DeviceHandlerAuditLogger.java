@@ -45,7 +45,7 @@ public class DeviceHandlerAuditLogger {
      */
     public void printAuditLog(Operation operation, String deviceId, String userId) {
 
-        JSONObject data = createAuditLogEntry(userId);
+        JSONObject data = createAuditLogEntry();
         buildAuditLog(operation, deviceId, data);
     }
 
@@ -70,10 +70,9 @@ public class DeviceHandlerAuditLogger {
     /**
      * Create audit log data with minimal device information.
      *
-     * @param userId   User ID associated with the device.
      * @return Audit log data.
      */
-    private JSONObject createAuditLogEntry(String userId) {
+    private JSONObject createAuditLogEntry() {
 
         JSONObject data = new JSONObject();
         data.put(LogConstants.UNREGISTERED_AT, System.currentTimeMillis());
